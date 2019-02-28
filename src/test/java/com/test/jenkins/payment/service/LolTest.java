@@ -23,7 +23,7 @@ public class LolTest {
     }
 
     private String paymentResponse1() throws IOException {
-        String response = readFile("String.json");
+        String response = readFile("/String.json");
         return response;
     }
 
