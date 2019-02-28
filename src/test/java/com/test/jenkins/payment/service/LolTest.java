@@ -30,9 +30,9 @@ public class LolTest {
     private String readFile(String pathname) throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(pathname).getFile());
-        LOG.info(file.getName());
-        LOG.info(file.getAbsolutePath());
-        LOG.info(file.getPath());
+        LOG.info("name" + file.getName());
+        LOG.info("absolute path" + file.getAbsolutePath());
+        LOG.info("path" + file.getPath());
         StringBuilder fileContents = new StringBuilder((int)file.length());
 
         try (Scanner scanner = new Scanner(file)) {
