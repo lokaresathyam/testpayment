@@ -7,8 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 @RunWith(SpringRunner.class)
@@ -23,16 +22,16 @@ public class LolTest {
     }
 
     private String paymentResponse1() throws IOException {
-        String response = readFile("/String.json");
+        String response = readFile("String.json");
         return response;
     }
 
     private String readFile(String pathname) throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(pathname).getFile());
-        LOG.info("name" + file.getName());
-        LOG.info("absolute path" + file.getAbsolutePath());
-        LOG.info("path" + file.getPath());
+        LOG.info("path: " + file.getPath());
+        LOG.info("name: " + file.getName());
+        LOG.info("absolute: " + file.getAbsolutePath());
         StringBuilder fileContents = new StringBuilder((int)file.length());
 
         try (Scanner scanner = new Scanner(file)) {
